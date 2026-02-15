@@ -1,1 +1,10 @@
-<p>board works!</p>
+<div class="d-grid gap-2">
+  <div class="d-flex justify-content-center gap-2" *ngFor="let row of grid">
+    <div
+      class="tile border rounded d-flex align-items-center justify-content-center fw-bold"
+      *ngFor="let cell of row"
+    >
+      {{ cell }}
+    </div>
+  </div>
+</div>

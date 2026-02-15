@@ -1,0 +1,6 @@
+.tile {
+  width: 52px;
+  height: 52px;
+  font-size: 1.25rem;
+  text-transform: uppercase;
+}
