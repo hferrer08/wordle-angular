@@ -6,9 +6,12 @@
     <div
       class="tile border rounded d-flex align-items-center justify-content-center fw-bold"
       [class.active]="i === activeRow"
+      [class.correct]="cell.state === 'correct'"
+      [class.present]="cell.state === 'present'"
+      [class.absent]="cell.state === 'absent'"
       *ngFor="let cell of row"
     >
-      {{ cell }}
+      {{ cell.letter }}
     </div>
   </div>
 </div>

@@ -9,6 +9,6 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./board.css'],
 })
 export class Board {
-  @Input({ required: true }) grid!: string[][];
+  @Input({ required: true }) grid!: { letter: string; state: 'empty' | 'correct' | 'present' | 'absent' }[][];
   @Input() activeRow = 0;
 }
