@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -9,8 +9,6 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./board.css'],
 })
 export class Board {
-  // 6 filas x 5 columnas (vacías por ahora)
-  grid: string[][] = Array.from({ length: 6 }, () =>
-    Array.from({ length: 5 }, () => '')
-  );
+  @Input({ required: true }) grid!: string[][];
+  @Input() activeRow = 0;
 }
