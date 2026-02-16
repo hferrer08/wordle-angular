@@ -1,59 +1,104 @@
-# WordleAngular
+# 🎯 Wordle Angular
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.1.4.
+Implementación del juego **Wordle** desarrollada en **Angular** como
+parte de la actividad voluntaria de la asignatura.
 
-## Development server
+------------------------------------------------------------------------
 
-To start a local development server, run:
+## 📌 Descripción
 
-```bash
-ng serve
-```
+Esta aplicación replica la mecánica clásica del juego Wordle:
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+-   El jugador dispone de **6 intentos**.
+-   Cada intento consiste en una palabra de **5 letras**.
+-   Después de validar con **Enter**, las letras cambian de color según
+    las reglas:
+    -   🟩 Verde: letra correcta en posición correcta.
+    -   🟨 Amarillo: letra correcta en posición incorrecta.
+    -   ⬜ Gris: letra no presente en la palabra.
 
-## Code scaffolding
+El juego finaliza cuando: - El jugador acierta la palabra (gana). - Se
+agotan los 6 intentos (pierde).
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+------------------------------------------------------------------------
 
-```bash
-ng generate component component-name
-```
+## 🚀 Características implementadas
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+-   ✅ Tablero dinámico de 6x5.
+-   ✅ Escritura únicamente en la fila activa.
+-   ✅ Validación con tecla **Enter**.
+-   ✅ Borrado con **Backspace**.
+-   ✅ Bloqueo de filas ya validadas.
+-   ✅ Mensaje de victoria o derrota.
+-   ✅ Botón **Nueva partida** para reiniciar el juego.
+-   ✅ Selección aleatoria de palabra desde un listado interno.
 
-```bash
-ng generate --help
-```
+------------------------------------------------------------------------
 
-## Building
+## 🛠️ Tecnologías utilizadas
 
-To build the project run:
+-   Angular
+-   TypeScript
+-   HTML5
+-   CSS3
 
-```bash
-ng build
-```
+------------------------------------------------------------------------
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+## ▶️ Cómo ejecutar el proyecto
 
-## Running unit tests
+1.  Clonar el repositorio:
 
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+    ``` bash
+    git clone https://github.com/hferrer08/wordle-angular.git
+    ```
 
-```bash
-ng test
-```
+2.  Instalar dependencias:
 
-## Running end-to-end tests
+    ``` bash
+    npm install
+    ```
 
-For end-to-end (e2e) testing, run:
+3.  Ejecutar el servidor de desarrollo:
 
-```bash
-ng e2e
-```
+    ``` bash
+    ng serve
+    ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+4.  Abrir en el navegador:
 
-## Additional Resources
+        http://localhost:4200/wordle
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+------------------------------------------------------------------------
+
+## 📂 Estructura principal
+
+    src/
+     └── app/
+         └── wordle/
+             ├── components/
+             │   └── board/
+             ├── pages/
+             │   └── wordle-page/
+             └── services/
+                 └── wordle.ts
+
+------------------------------------------------------------------------
+
+## 🎮 Instrucciones de uso
+
+-   Escribe usando el teclado físico.
+-   Presiona **Enter** para validar.
+-   Usa **Backspace** para borrar.
+-   Intenta descubrir la palabra en 6 intentos.
+
+------------------------------------------------------------------------
+
+## 👨‍💻 Autor
+
+Hubert Ferrer Guerrero
+
+------------------------------------------------------------------------
+
+## 📄 Licencia
+
+Proyecto académico desarrollado con fines educativos.
