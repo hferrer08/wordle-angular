@@ -1,0 +1,17 @@
+<div class="d-grid gap-2">
+  <div
+    class="d-flex justify-content-center gap-2"
+    *ngFor="let row of grid; let i = index"
+  >
+    <div
+      class="tile border rounded d-flex align-items-center justify-content-center fw-bold"
+      [class.active]="i === activeRow"
+      [class.correct]="cell.state === 'correct'"
+      [class.present]="cell.state === 'present'"
+      [class.absent]="cell.state === 'absent'"
+      *ngFor="let cell of row"
+    >
+      {{ cell.letter }}
+    </div>
+  </div>
+</div>

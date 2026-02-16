@@ -1,7 +1,7 @@
 import { ChangeDetectorRef, Component, HostListener } from '@angular/core';
 import { Board } from '../../components/board/board';
 import Swal from 'sweetalert2';
-import { WordleService } from '../../services/wordle';
+import { WordleService } from '../../../app/wordle/services/wordle';
 
 @Component({
   selector: 'app-wordle-page',
