@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, HostListener } from '@angular/core';
+import { ChangeDetectorRef, Component, HostListener, OnInit } from '@angular/core';
 import { Board } from '../../components/board/board';
 import Swal from 'sweetalert2';
 
@@ -96,8 +96,10 @@ export class WordlePage {
   status: 'playing' | 'won' | 'lost' = 'playing';
   solution!: string;
 
-  constructor(private cdr: ChangeDetectorRef) {
-    this.newGame();
+  constructor(private cdr: ChangeDetectorRef) {}
+
+  ngOnInit(): void {
+  this.newGame();
   }
 
   //Como un addEventListener global para capturar las teclas presionadas
