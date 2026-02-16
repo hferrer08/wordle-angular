@@ -33,7 +33,7 @@ export class WordlePage {
       event.preventDefault();
       event.stopPropagation();
 
-      const result = this.game.submit(); // {status, solution} | null
+      const result = this.game.submit(); 
       if (!result) return;
 
       if (result.status === 'won') {
