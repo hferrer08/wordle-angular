@@ -24,10 +24,81 @@ export class WordlePage {
   activeRow = 0;
   activeCol = 0;
 
-  solution: string = 'CASAS';
-  status: 'playing' | 'won' | 'lost' = 'playing';
+  words = [
+    'CASAS',
+    'PERRO',
+    'GATOS',
+    'ARBOL',
+    'PLAYA',
+    'CIELO',
+    'FUEGO',
+    'AGUAS',
+    'SILLA',
+    'VASOS',
+    'LIBRO',
+    'LAPIZ',
+    'PLAZA',
+    'CALOR',
+    'LIMON',
+    'MANGO',
+    'CANTO',
+    'RISAS',
+    'SALSA',
+    'PESCA',
+    'BARCO',
+    'RUMBA',
+    'AREPA',
+    'HUEVO',
+    'DULCE',
+    'NIEVE',
+    'AVION',
+    'COCHE',
+    'RATON',
+    'ZORRO',
+    'OSITO',
+    'PANDA',
+    'VERDE',
+    'NEGRO',
+    'ROJOS',
+    'AMBAR',
+    'TRIGO',
+    'CAFES',
+    'CACAO',
+    'TIGRE',
+    'LEONA',
+    'LLAVE',
+    'PATIO',
+    'CAMPO',
+    'MONTE',
+    'RANGO',
+    'NADAR',
+    'CORRE',
+    'SALTA',
+    'BAILA',
+    'SABER',
+    'VIVIR',
+    'GANAR',
+    'HUMOR',
+    'FELIZ',
+    'GRUPO',
+    'NOCHE',
+    'MEDIA',
+    'FORMA',
+    'LUGAR',
+    'PLENO',
+    'VIAJE',
+    'SUELO',
+    'LUCES',
+  ];
 
-  constructor(private cdr: ChangeDetectorRef) {}
+  validWords = this.words.map((w) => w.toUpperCase()).filter((w) => /^[A-Z]{5}$/.test(w));
+
+  status: 'playing' | 'won' | 'lost' = 'playing';
+  solution!: string;
+
+  constructor(private cdr: ChangeDetectorRef) {
+    this.newGame();
+  }
 
   //Como un addEventListener global para capturar las teclas presionadas
   @HostListener('window:keydown', ['$event'])
@@ -71,8 +142,11 @@ export class WordlePage {
     this.activeCol = 0;
     this.status = 'playing';
 
-    // por ahora fija (después la hacemos random)
-    this.solution = 'CASAS';
+    if (this.validWords.length === 0) {
+      throw new Error('No hay palabras válidas de 5 letras en el diccionario.');
+    }
+
+    this.solution = this.validWords[Math.floor(Math.random() * this.validWords.length)];
     this.cdr.detectChanges();
   }
 
@@ -116,7 +190,10 @@ export class WordlePage {
     if (this.activeCol < 5) return; // requiere 5 letras
 
     const guessTiles = this.grid[this.activeRow];
-    const guess = guessTiles.map((t) => t.letter).join('');
+    const guess = guessTiles
+      .map((t) => t.letter)
+      .join('')
+      .toUpperCase();
 
     const result = this.evaluateGuess(guess, this.solution);
 
@@ -144,7 +221,6 @@ export class WordlePage {
           // para reiniciar el juego al hacer click en el botón
           preConfirm: () => {
             this.newGame();
-            this.cdr.detectChanges();
           },
         });
       }, 0);
@@ -169,7 +245,6 @@ export class WordlePage {
 
           preConfirm: () => {
             this.newGame();
-            this.cdr.detectChanges();
           },
         });
       }, 0);
