@@ -1,9 +1,34 @@
 # 🎯 Wordle Angular
 
+![Angular](https://img.shields.io/badge/Angular-17-red)
+![Deploy](https://img.shields.io/badge/Deploy-GitHub%20Pages-blue)
+
+🔗 **Demo en línea:**  
+https://hferrer08.github.io/wordle-angular/wordle
+
 Implementación del juego **Wordle** desarrollada en **Angular** como
 parte de la actividad voluntaria de la asignatura.
 
 ------------------------------------------------------------------------
+
+## 🌐 Deploy en GitHub Pages
+
+La aplicación está desplegada en GitHub Pages y puede probarse en:
+
+🔗 https://hferrer08.github.io/wordle-angular/wordle
+
+El despliegue se realiza generando el build de producción y publicando
+la carpeta `dist` en la rama `gh-pages`.
+
+Comando utilizado:
+
+```bash
+ng build --base-href /wordle-angular/
+npx angular-cli-ghpages --dir=dist/wordle-angular/browser
+
+------------------------------------------------------------------------
+
+
 
 ## 📌 Descripción
 
